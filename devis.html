@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devis - OxmoDevWeb</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <i class="fas fa-rocket"></i>
+                    <span>OxmoDevWeb</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="index.html#services">Services</a></li>
+                <li><a href="index.html#portfolio">Portfolio</a></li>
+                <li><a href="index.html#processus">Processus</a></li>
+                <li><a href="devis.html" class="nav-active">Devis</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Devis Section -->
+    <section class="devis-section">
+        <div class="container">
+            <div class="devis-header">
+                <h1 class="devis-title">FORMULAIRE DE DEMANDE DE DEVIS</h1>
+                <p class="devis-subtitle">Création de site web</p>
+                <p class="devis-description">Merci de remplir ce formulaire et de me le renvoyer par email.</p>
+            </div>
+
+            <form class="devis-form" id="devisForm">
+                <!-- 1. INFORMATIONS GÉNÉRALES -->
+                <div class="form-section">
+                    <h2 class="section-divider">1. INFORMATIONS GÉNÉRALES</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nom">Nom *</label>
+                            <input type="text" id="nom" name="nom" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="prenom">Prénom *</label>
+                            <input type="text" id="prenom" name="prenom" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="entreprise">Entreprise (si applicable)</label>
+                            <input type="text" id="entreprise" name="entreprise">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telephone">Téléphone *</label>
+                            <input type="tel" id="telephone" name="telephone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="secteur">Secteur d'activité *</label>
+                            <input type="text" id="secteur" name="secteur" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. OBJECTIF DU SITE -->
+                <div class="form-section">
+                    <h2 class="section-divider">2. OBJECTIF DU SITE</h2>
+                    
+                    <div class="form-group">
+                        <label>Type de site souhaité *</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="type_presentation" name="type_site" value="presentation">
+                                <span class="checkmark"></span>
+                                Présentation / Vitrine
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="type_landing" name="type_site" value="landing">
+                                <span class="checkmark"></span>
+                                Landing page
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="type_blog" name="type_site" value="blog">
+                                <span class="checkmark"></span>
+                                Blog / Articles
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="type_ecommerce" name="type_site" value="ecommerce">
+                                <span class="checkmark"></span>
+                                E-commerce
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="type_autre_check" name="type_site" value="autre">
+                                <span class="checkmark"></span>
+                                Autre :
+                            </label>
+                            <input type="text" id="type_autre" name="type_autre" placeholder="Précisez..." class="autre-input">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projet_description">Décrivez brièvement votre projet *</label>
+                        <textarea id="projet_description" name="projet_description" rows="4" required></textarea>
+                    </div>
+                </div>
+
+                <!-- 3. PAGES SOUHAITÉES -->
+                <div class="form-section">
+                    <h2 class="section-divider">3. PAGES SOUHAITÉES</h2>
+                    
+                    <div class="form-group">
+                        <label>Laissez uniquement ce qui vous concerne :</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="pages" value="accueil">
+                                <span class="checkmark"></span>
+                                Accueil / Landing page
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="pages" value="apropos">
+                                <span class="checkmark"></span>
+                                À propos
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="pages" value="services">
+                                <span class="checkmark"></span>
+                                Services / Produits
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="pages" value="blog">
+                                <span class="checkmark"></span>
+                                Blog (liste d'articles)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="pages" value="article">
+                                <span class="checkmark"></span>
+                                Page article
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="pages" value="contact">
+                                <span class="checkmark"></span>
+                                Contact
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="pages" value="mentions">
+                                <span class="checkmark"></span>
+                                Mentions légales / RGPD
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="pages" value="autres_pages">
+                                <span class="checkmark"></span>
+                                Autres pages :
+                            </label>
+                            <input type="text" id="pages_autres" name="pages_autres" placeholder="Précisez..." class="autre-input">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. FONCTIONNALITÉS -->
+                <div class="form-section">
+                    <h2 class="section-divider">4. FONCTIONNALITÉS</h2>
+                    
+                    <div class="form-group">
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="fonctionnalites" value="contact_form">
+                                <span class="checkmark"></span>
+                                Formulaire de contact
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="fonctionnalites" value="dashboard">
+                                <span class="checkmark"></span>
+                                Dashboard administrateur
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="fonctionnalites" value="articles">
+                                <span class="checkmark"></span>
+                                Ajout / modification / suppression d'articles
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="fonctionnalites" value="auth">
+                                <span class="checkmark"></span>
+                                Authentification (admin / utilisateurs)
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="fonctionnalites" value="galerie">
+                                <span class="checkmark"></span>
+                                Galerie photos / portfolio
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="fonctionnalites" value="paiement">
+                                <span class="checkmark"></span>
+                                Paiement en ligne
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="fonctionnalites" value="multilingue">
+                                <span class="checkmark"></span>
+                                Multilingue
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="fonctionnalites" value="autres_fonc">
+                                <span class="checkmark"></span>
+                                Autres fonctionnalités :
+                            </label>
+                            <input type="text" id="fonc_autres" name="fonc_autres" placeholder="Précisez..." class="autre-input">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. CONTENU -->
+                <div class="form-section">
+                    <h2 class="section-divider">5. CONTENU</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Avez-vous déjà les textes ? *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="textes" value="oui" required>
+                                    <span class="radio-mark"></span>
+                                    Oui
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="textes" value="non" required>
+                                    <span class="radio-mark"></span>
+                                    Non
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="textes" value="partiellement" required>
+                                    <span class="radio-mark"></span>
+                                    Partiellement
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Avez-vous les images ? *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="images" value="oui" required>
+                                    <span class="radio-mark"></span>
+                                    Oui
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="images" value="non" required>
+                                    <span class="radio-mark"></span>
+                                    Non
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="images" value="partiellement" required>
+                                    <span class="radio-mark"></span>
+                                    Partiellement
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Souhaitez-vous que je rédige le contenu ? *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="redaction" value="oui" required>
+                                <span class="radio-mark"></span>
+                                Oui
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="redaction" value="non" required>
+                                <span class="radio-mark"></span>
+                                Non
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. DESIGN & IDENTITÉ VISUELLE -->
+                <div class="form-section">
+                    <h2 class="section-divider">6. DESIGN & IDENTITÉ VISUELLE</h2>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Avez-vous une charte graphique ? *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="charte" value="oui" required>
+                                    <span class="radio-mark"></span>
+                                    Oui
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="charte" value="non" required>
+                                    <span class="radio-mark"></span>
+                                    Non
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Avez-vous des exemples de sites que vous aimez ? *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="exemples" value="oui" required>
+                                    <span class="radio-mark"></span>
+                                    Oui (liens)
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="exemples" value="non" required>
+                                    <span class="radio-mark"></span>
+                                    Non
+                                </label>
+                            </div>
+                            <input type="text" id="exemples_liens" name="exemples_liens" placeholder="Liens des sites..." class="autre-input">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Style souhaité *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" id="style_moderne" name="style" value="moderne" required>
+                                <span class="radio-mark"></span>
+                                Moderne / Épuré
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" id="style_classique" name="style" value="classique" required>
+                                <span class="radio-mark"></span>
+                                Classique / Élégant
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" id="style_creatif" name="style" value="creatif" required>
+                                <span class="radio-mark"></span>
+                                Créatif / Original
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" id="style_technologique" name="style" value="technologique" required>
+                                <span class="radio-mark"></span>
+                                Technologique / High-tech
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" id="style_naturel" name="style" value="naturel" required>
+                                <span class="radio-mark"></span>
+                                Naturel / Écologique
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" id="style_autre_radio" name="style" value="autre" required>
+                                <span class="radio-mark"></span>
+                                Autre :
+                            </label>
+                            <input type="text" id="style_autre" name="style_autre" placeholder="Précisez..." class="autre-input">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. DÉLAIS -->
+                <div class="form-section">
+                    <h2 class="section-divider">7. DÉLAIS</h2>
+                    
+                    <div class="form-group">
+                        <label>Délais souhaités *</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="delais" value="urgent" required>
+                                <span class="radio-mark"></span>
+                                Urgent (moins d'une semaine)
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="delais" value="1-2" required>
+                                <span class="radio-mark"></span>
+                                1–2 semaines
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="delais" value="2-4" required>
+                                <span class="radio-mark"></span>
+                                2–4 semaines
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="delais" value="flexible" required>
+                                <span class="radio-mark"></span>
+                                Flexible
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. INFORMATIONS SUPPLÉMENTAIRES -->
+                <div class="form-section">
+                    <h2 class="section-divider">8. INFORMATIONS SUPPLÉMENTAIRES</h2>
+                    
+                    <div class="form-group">
+                        <label for="informations">Notes, besoins spécifiques, contraintes techniques :</label>
+                        <textarea id="informations" name="informations" rows="4"></textarea>
+                    </div>
+                </div>
+
+                <!-- Anti-spam -->
+                <div class="form-group antispam-group">
+                    <label for="antispam">Pour vérifier que vous n'êtes pas un robot, veuillez répondre : 2 + 3 = ? *</label>
+                    <input type="text" id="antispam" name="antispam" required>
+                </div>
+
+                <!-- Submit -->
+                <div class="form-submit">
+                    <button type="submit" class="btn btn-primary btn-large">
+                        <i class="fas fa-paper-plane"></i>
+                        Envoyer ma demande de devis
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-rocket"></i>
+                    <span>OxmoDevWeb</span>
+                </div>
+                <p>&copy; 2024 OxmoDevWeb. Tous droits réservés.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialiser EmailJS
+        (function() {
+            emailjs.init("tEsjcoIN9xW4nqheR"); // Remplace par ta clé publique EmailJS
+            
+            // Vérifier si EmailJS est bien initialisé
+            if (typeof emailjs !== 'undefined') {
+                console.log('EmailJS initialisé avec succès');
+            } else {
+                console.error('EmailJS n\'est pas chargé correctement');
+            }
+        })();
+    </script>
+</body>
+</html>
