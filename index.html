@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OxmoDevWeb - Création de Sites Web avec IA</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html" class="logo-link">
+                    <i class="fas fa-rocket"></i>
+                    <span>OxmoDevWeb</span>
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#processus">Processus</a></li>
+                <li><a href="devis.html">Devis</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                <span class="gradient-text">Créons Ensemble</span><br>
+                Votre Site Web 
+            </h1>
+            <p class="hero-subtitle">
+                Alliant créativité humaine et intelligence artificielle pour des sites web qui captivent vos clients
+            </p>
+            <div class="hero-buttons">
+                <a href="#portfolio" class="btn btn-primary">Voir mes créations</a>
+                <a href="devis.html" class="btn btn-secondary">Demander un devis</a>
+            </div>
+        </div>
+        <div class="hero-visual">
+            <div class="floating-elements">
+                <div class="element element-1"></div>
+                <div class="element element-2"></div>
+                <div class="element element-3"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">Mes Services</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Design Personnalisé</h3>
+                    <p>Création de designs uniques et modernes qui reflètent votre identité de marque</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive Design</h3>
+                    <p>Sites parfaitement adaptés sur tous les appareils pour une expérience optimale</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>SEO Optimisé</h3>
+                    <p>Optimisation complète pour les moteurs de recherche et visibilité en ligne</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title">Mes Réalisations</h2>
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="vitrine">Vitrine</button>
+                <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+                <button class="filter-btn" data-filter="login">Login</button>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item" data-category="ecommerce">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Boutique Mode Moderne</h3>
+                        <p>E-commerce avec système de paiement intégré et recommandations IA</p>
+                        <div class="portfolio-tags">
+                            <span>React</span>
+                            <span>Node.js</span>
+                            <span>IA</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="vitrine">
+                    <div class="portfolio-image">
+                        <img src="img/AFDT.webp" alt="Site de Couture sur Mesure" class="portfolio-real-image">
+                        <div class="image-overlay">
+                            <i class="fas fa-eye"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Site de Couture sur Mesure</h3>
+                        <p>Site vitrine élégant pour une couturière avec présentation des collections et prise de rendez-vous.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Vitrine</span>
+                            <span class="tag">Design</span>
+                        </div>
+                        <a href="#" target="_blank" class="portfolio-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            Voir le site
+                        </a>
+                    </div>
+                </div>
+                <div class="portfolio-item" data-category="login">
+                    <div class="portfolio-image">
+                        <div class="placeholder-image" style="background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);">
+                            <i class="fas fa-user-lock"></i>
+                        </div>
+                    </div>
+                    <div class="portfolio-content">
+                        <h3>Site avec Module Login</h3>
+                        <p>Site web avec système d'authentification complet, espace utilisateur et tableau de bord personnel.</p>
+                        <div class="portfolio-tags">
+                            <span class="tag">Login</span>
+                            <span class="tag">Dashboard</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="processus" class="process">
+        <div class="container">
+            <h2 class="section-title">Mon Processus de Création</h2>
+            <div class="process-timeline">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Découverte & Besoins</h3>
+                        <p>Écoute active de votre vision et définition précise de vos objectifs</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Design & Prototype</h3>
+                        <p>Création de maquettes interactives et validation du design</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Développement</h3>
+                        <p>Codage propre et moderne avec assistance IA</p>
+                    </div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Lancement & Support</h3>
+                        <p>Mise en ligne et accompagnement continu pour votre succès</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-rocket"></i>
+                    <span>OxmoDevWeb</span>
+                </div>
+                <p>&copy; 2024 OxmoDevWeb. Tous droits réservés.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
