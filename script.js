@@ -797,6 +797,35 @@ function createCompleteEmailMessage(data) {
     return message;
 }
 
+// ===== BACK TO TOP BUTTON =====
+function initBackToTop() {
+    const backToTopButton = document.getElementById('backToTop');
+    
+    if (!backToTopButton) return;
+
+    // Afficher/masquer le bouton selon le scroll
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('show');
+        } else {
+            backToTopButton.classList.remove('show');
+        }
+    });
+
+    // Action au clic
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// Initialiser le back to top
+document.addEventListener('DOMContentLoaded', () => {
+    initBackToTop();
+});
+
 function createMailtoLink(data) {
     const subject = encodeURIComponent('Demande de devis - Création de site web');
     const body = encodeURIComponent(createEmailBody(data));
