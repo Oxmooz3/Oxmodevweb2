@@ -1062,6 +1062,26 @@ body.loaded {
     }
 }
 
+.share-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+}
+
+.share-icon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}
+
 .share-btn.facebook {
     background: linear-gradient(135deg, #1877f2, #0e5fcc);
 }
