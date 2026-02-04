@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://oxmodevweb2.vercel.app/sitemap.xml
+
+# Allow search engines to crawl all content
+Allow: /index.html
+Allow: /devis.html
+Allow: /styles.css
+Allow: /script.js
