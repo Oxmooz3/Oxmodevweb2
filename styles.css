@@ -1020,7 +1020,7 @@ body.loaded {
     justify-content: center;
     font-size: 1.1rem;
     box-shadow: var(--shadow-lg);
-    z-index: 999;
+    z-index: 1001;
     opacity: 1;
     visibility: visible;
     transition: var(--transition);

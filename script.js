@@ -248,22 +248,7 @@ function initThemeToggle() {
     const themeToggle = document.createElement('button');
     themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
     themeToggle.className = 'theme-toggle';
-    themeToggle.style.cssText = `
-        position: fixed;
-        bottom: 20px;
-        right: 20px;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
-        background: var(--primary-gradient);
-        color: white;
-        border: none;
-        cursor: pointer;
-        box-shadow: var(--shadow-lg);
-        z-index: 1000;
-        transition: var(--transition);
-        font-size: 1.2rem;
-    `;
+    themeToggle.setAttribute('aria-label', 'Basculer le thème');
     
     document.body.appendChild(themeToggle);
     
@@ -275,14 +260,6 @@ function initThemeToggle() {
         } else {
             icon.className = 'fas fa-moon';
         }
-    });
-    
-    themeToggle.addEventListener('mouseenter', () => {
-        themeToggle.style.transform = 'scale(1.1)';
-    });
-    
-    themeToggle.addEventListener('mouseleave', () => {
-        themeToggle.style.transform = 'scale(1)';
     });
 }
 
