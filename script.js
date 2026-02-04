@@ -788,9 +788,10 @@ function initBackToTop() {
     
     if (!backToTopButton) return;
 
-    // Afficher/masquer le bouton selon le scroll
+    // Afficher/masquer le bouton selon le scroll (moitié de la page)
     window.addEventListener('scroll', () => {
-        if (window.pageYOffset > 300) {
+        const scrollThreshold = window.innerHeight / 2; // Moitié de la hauteur de la page
+        if (window.pageYOffset > scrollThreshold) {
             backToTopButton.classList.add('show');
         } else {
             backToTopButton.classList.remove('show');
