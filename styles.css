@@ -1021,16 +1021,16 @@ body.loaded {
     font-size: 1.1rem;
     box-shadow: var(--shadow-lg);
     z-index: 1001;
-    opacity: 1;
-    visibility: visible;
-    transition: var(--transition);
-    transform: translateY(0);
-}
-
-.back-to-top.hide {
     opacity: 0;
     visibility: hidden;
+    transition: var(--transition);
     transform: translateY(20px);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 .back-to-top:hover {
@@ -1069,10 +1069,18 @@ body.loaded {
     z-index: 1000;
     transition: var(--transition);
     font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .theme-toggle:hover {
     transform: scale(1.1);
+    box-shadow: var(--shadow-xl);
+}
+
+.theme-toggle:active {
+    transform: scale(0.95);
 }
 
 /* ===== DARK THEME ===== */

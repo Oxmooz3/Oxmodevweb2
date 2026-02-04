@@ -261,6 +261,14 @@ function initThemeToggle() {
             icon.className = 'fas fa-moon';
         }
     });
+    
+    themeToggle.addEventListener('mouseenter', () => {
+        themeToggle.style.transform = 'scale(1.1)';
+    });
+    
+    themeToggle.addEventListener('mouseleave', () => {
+        themeToggle.style.transform = 'scale(1)';
+    });
 }
 
 // Initialiser le thème toggle au chargement
@@ -780,15 +788,12 @@ function initBackToTop() {
     
     if (!backToTopButton) return;
 
-    // Cacher le bouton au début
-    backToTopButton.classList.add('hide');
-
     // Afficher/masquer le bouton selon le scroll
     window.addEventListener('scroll', () => {
         if (window.pageYOffset > 300) {
-            backToTopButton.classList.remove('hide');
+            backToTopButton.classList.add('show');
         } else {
-            backToTopButton.classList.add('hide');
+            backToTopButton.classList.remove('show');
         }
     });
 
