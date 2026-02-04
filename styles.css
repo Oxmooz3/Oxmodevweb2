@@ -616,7 +616,7 @@ body.loaded {
 }
 
 .logo-img {
-    height: 50px;
+    height: 60px;
     width: auto;
     transition: var(--transition);
 }
@@ -625,15 +625,18 @@ body.loaded {
     transform: scale(1.05);
 }
 
-.footer-logo-img {
-    height: 60px;
-    width: auto;
+.footer-logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.25rem;
     margin-bottom: 1rem;
-    transition: var(--transition);
 }
 
-.footer-logo-img:hover {
-    transform: scale(1.05);
+.footer-logo i {
+    margin-right: 0.5rem;
+    font-size: 1.5rem;
+    color: #667eea;
 }
 
 .footer-contact h4 {
