@@ -1021,16 +1021,16 @@ body.loaded {
     font-size: 1.1rem;
     box-shadow: var(--shadow-lg);
     z-index: 999;
-    opacity: 0;
-    visibility: hidden;
-    transition: var(--transition);
-    transform: translateY(20px);
-}
-
-.back-to-top.show {
     opacity: 1;
     visibility: visible;
+    transition: var(--transition);
     transform: translateY(0);
+}
+
+.back-to-top.hide {
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
 }
 
 .back-to-top:hover {

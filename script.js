@@ -803,12 +803,15 @@ function initBackToTop() {
     
     if (!backToTopButton) return;
 
+    // Cacher le bouton au début
+    backToTopButton.classList.add('hide');
+
     // Afficher/masquer le bouton selon le scroll
     window.addEventListener('scroll', () => {
         if (window.pageYOffset > 300) {
-            backToTopButton.classList.add('show');
+            backToTopButton.classList.remove('hide');
         } else {
-            backToTopButton.classList.remove('show');
+            backToTopButton.classList.add('hide');
         }
     });
 
