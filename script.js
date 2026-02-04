@@ -787,24 +787,28 @@ function shareOnFacebook() {
     const url = encodeURIComponent(window.location.href);
     const title = encodeURIComponent("OxmoDevWeb - Création de Sites Web avec IA");
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${title}`, '_blank', 'width=600,height=400');
+    if (typeof trackSocialShare === 'function') trackSocialShare('facebook');
 }
 
 function shareOnTwitter() {
     const url = encodeURIComponent(window.location.href);
     const text = encodeURIComponent("Découvrez OxmoDevWeb - Création de sites web sur mesure avec intelligence artificielle !");
     window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=600,height=400');
+    if (typeof trackSocialShare === 'function') trackSocialShare('twitter');
 }
 
 function shareOnInstagram() {
     // Instagram n'a pas de partage URL direct, on copie le lien
     copyLink();
     alert("Lien copié ! Vous pouvez maintenant le partager sur Instagram 📸");
+    if (typeof trackSocialShare === 'function') trackSocialShare('instagram');
 }
 
 function shareOnSnapchat() {
     // Snapchat n'a pas de partage URL direct, on copie le lien
     copyLink();
     alert("Lien copié ! Vous pouvez maintenant le partager sur Snapchat 📱");
+    if (typeof trackSocialShare === 'function') trackSocialShare('snapchat');
 }
 
 function copyLink() {
@@ -840,6 +844,55 @@ function showCopyNotification() {
     setTimeout(() => {
         notification.classList.remove('show');
     }, 3000);
+}
+
+// ===== GOOGLE ANALYTICS ENHANCED TRACKING =====
+function initAnalyticsTracking() {
+    // Track page views
+    gtag('config', 'G-XXXXXXXXXX', {
+        page_title: document.title,
+        page_location: window.location.href,
+        content_group1: window.location.pathname.includes('devis') ? 'Devis' : 'Portfolio'
+    });
+    
+    // Track social media shares
+    window.trackSocialShare = function(network) {
+        gtag('event', 'share', {
+            method: network,
+            content_type: 'website',
+            item_id: 'oxmodevweb_main'
+        });
+    };
+    
+    // Track form submissions
+    window.trackFormSubmission = function(formType) {
+        gtag('event', 'generate_lead', {
+            form_name: formType,
+            content_type: 'contact'
+        });
+    };
+    
+    // Track button clicks
+    window.trackButtonClick = function(buttonName, buttonLocation) {
+        gtag('event', 'click', {
+            button_name: buttonName,
+            button_location: buttonLocation
+        });
+    };
+    
+    // Track scroll depth
+    let maxScroll = 0;
+    window.addEventListener('scroll', () => {
+        const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+        if (scrollPercent > maxScroll) {
+            maxScroll = scrollPercent;
+            if (maxScroll === 25 || maxScroll === 50 || maxScroll === 75 || maxScroll === 90) {
+                gtag('event', 'scroll', {
+                    percent_scrolled: maxScroll
+                });
+            }
+        }
+    });
 }
 
 // ===== EMAIL PROTECTION =====
@@ -886,6 +939,7 @@ function initBackToTop() {
 document.addEventListener('DOMContentLoaded', () => {
     initBackToTop();
     initEmailProtection();
+    initAnalyticsTracking();
 });
 
 function createMailtoLink(data) {
