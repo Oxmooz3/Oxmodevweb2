@@ -842,6 +842,21 @@ function showCopyNotification() {
     }, 3000);
 }
 
+// ===== EMAIL PROTECTION =====
+function initEmailProtection() {
+    const emailLinks = document.querySelectorAll('#email-link');
+    
+    emailLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const email = this.getAttribute('data-email');
+            const subject = encodeURIComponent('Contact depuis OxmoDevWeb');
+            const body = encodeURIComponent('Bonjour,\n\nJe vous contacte depuis votre site OxmoDevWeb.\n\n');
+            window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+        });
+    });
+}
+
 // ===== BACK TO TOP BUTTON =====
 function initBackToTop() {
     const backToTopButton = document.getElementById('backToTop');
@@ -867,9 +882,10 @@ function initBackToTop() {
     });
 }
 
-// Initialiser le back to top
+// Initialiser les fonctionnalités
 document.addEventListener('DOMContentLoaded', () => {
     initBackToTop();
+    initEmailProtection();
 });
 
 function createMailtoLink(data) {
