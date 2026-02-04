@@ -789,9 +789,57 @@ function shareOnFacebook() {
     window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${title}`, '_blank', 'width=600,height=400');
 }
 
-function shareOnGitHub() {
-    const url = encodeURIComponent('https://github.com/Oxmooz3/Oxmodevweb2');
-    window.open(url, '_blank');
+function shareOnTwitter() {
+    const url = encodeURIComponent(window.location.href);
+    const text = encodeURIComponent("Découvrez OxmoDevWeb - Création de sites web sur mesure avec intelligence artificielle !");
+    window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=600,height=400');
+}
+
+function shareOnInstagram() {
+    // Instagram n'a pas de partage URL direct, on copie le lien
+    copyLink();
+    alert("Lien copié ! Vous pouvez maintenant le partager sur Instagram 📸");
+}
+
+function shareOnSnapchat() {
+    // Snapchat n'a pas de partage URL direct, on copie le lien
+    copyLink();
+    alert("Lien copié ! Vous pouvez maintenant le partager sur Snapchat 📱");
+}
+
+function copyLink() {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+        showCopyNotification();
+    }).catch(() => {
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = url;
+        document.body.appendChild(textArea);
+        textArea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textArea);
+        showCopyNotification();
+    });
+}
+
+function showCopyNotification() {
+    // Create notification if it doesn't exist
+    let notification = document.querySelector('.copy-notification');
+    if (!notification) {
+        notification = document.createElement('div');
+        notification.className = 'copy-notification';
+        notification.innerHTML = '<i class="fas fa-check-circle"></i> Lien copié !';
+        document.body.appendChild(notification);
+    }
+    
+    // Show notification
+    notification.classList.add('show');
+    
+    // Hide after 3 seconds
+    setTimeout(() => {
+        notification.classList.remove('show');
+    }, 3000);
 }
 
 // ===== BACK TO TOP BUTTON =====

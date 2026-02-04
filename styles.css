@@ -1066,8 +1066,25 @@ body.loaded {
     background: linear-gradient(135deg, #1877f2, #0e5fcc);
 }
 
-.share-btn.github {
-    background: linear-gradient(135deg, #333, #000);
+.share-btn.twitter {
+    background: linear-gradient(135deg, #1da1f2, #0c85d0);
+}
+
+.share-btn.instagram {
+    background: linear-gradient(135deg, #f58529, #dd2a7b, #8134af, #515bd4);
+    background-size: 400% 400%;
+    animation: instagram-gradient 3s ease infinite;
+}
+
+.share-btn.snapchat {
+    background: linear-gradient(135deg, #fffc00, #ff9900);
+    color: #000;
+}
+
+@keyframes instagram-gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* ===== THEME TOGGLE ===== */
