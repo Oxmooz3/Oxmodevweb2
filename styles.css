@@ -667,6 +667,11 @@ body.loaded {
     .social-links {
         justify-self: center;
     }
+=======
+.social-links {
+    display: flex;
+    gap: 1rem;
+>>>>>>> bf67866b6da74b58fc1b8e4d8ac6234d97429075
 }
 
 .social-links a {
