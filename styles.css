@@ -310,20 +310,11 @@ body.loaded {
     font-size: 2.5rem;
     font-weight: 700;
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 3rem;
     background: var(--primary-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-.section-description {
-    text-align: center;
-    font-size: 1.1rem;
-    color: var(--text-secondary);
-    max-width: 800px;
-    margin: 0 auto 3rem auto;
-    line-height: 1.6;
 }
 
 .container {
@@ -1069,6 +1060,14 @@ body.loaded {
         height: 40px !important;
         font-size: 1rem !important;
     }
+}
+
+.share-btn.facebook {
+    background: linear-gradient(135deg, #1877f2, #0e5fcc);
+}
+
+.share-btn.github {
+    background: linear-gradient(135deg, #333, #000);
 }
 
 /* ===== THEME TOGGLE ===== */

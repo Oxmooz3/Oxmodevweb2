@@ -782,6 +782,18 @@ function createCompleteEmailMessage(data) {
     return message;
 }
 
+// ===== SOCIAL SHARE FUNCTIONS =====
+function shareOnFacebook() {
+    const url = encodeURIComponent(window.location.href);
+    const title = encodeURIComponent("OxmoDevWeb - Création de Sites Web avec IA");
+    window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${title}`, '_blank', 'width=600,height=400');
+}
+
+function shareOnGitHub() {
+    const url = encodeURIComponent('https://github.com/Oxmooz3/Oxmodevweb2');
+    window.open(url, '_blank');
+}
+
 // ===== BACK TO TOP BUTTON =====
 function initBackToTop() {
     const backToTopButton = document.getElementById('backToTop');
